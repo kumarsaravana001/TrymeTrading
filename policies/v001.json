@@ -1,0 +1,14 @@
+{
+  "version": "v001",
+  "parent": null,
+  "note": "initial hypotheses, no evidence of edge",
+  "min_setup_quality": 2,
+  "min_direction_confidence": 0.8,
+  "kelly_fraction": 0.25,
+  "calibration_shrink": 0.5,
+  "stop_atr": 2.0,
+  "target_atr": 3.0,
+  "max_hold_candles": 96,
+  "ema_fast": 12,
+  "ema_slow": 48
+}

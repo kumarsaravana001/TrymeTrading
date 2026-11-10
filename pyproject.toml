@@ -1,0 +1,37 @@
+[project]
+name = "tryme"
+version = "0.1.0"
+description = "24/7 crypto trading agent: code-owned risk and execution, model-judged setups"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.6",
+  "PyYAML>=6",
+  "numpy>=1.26",
+  "ccxt>=4.4",
+  "anthropic>=1.0",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+tryme = "tryme.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]

@@ -1,0 +1,33 @@
+# 24/7 runtime. `docker compose up -d` after copying .env.example to .env.
+# restart: unless-stopped brings both services back after a crash or a host reboot
+# (the Docker daemon itself must be enabled at boot: `systemctl enable docker`).
+services:
+  trader:
+    build: .
+    command: ["run"]
+    env_file: .env
+    restart: unless-stopped
+    volumes:
+      - ./var:/app/var
+      - ./policies:/app/policies
+      - ./config:/app/config:ro
+    healthcheck:
+      test: ["CMD", "python", "-m", "tryme.cli", "health"]
+      interval: 5m
+      timeout: 20s
+      retries: 2
+      start_period: 20m
+    logging:
+      options: { max-size: "20m", max-file: "5" }
+
+  nightly:
+    build: .
+    command: ["nightly", "--loop", "--tests"]
+    env_file: .env
+    restart: unless-stopped
+    volumes:
+      - ./var:/app/var
+      - ./policies:/app/policies
+      - ./config:/app/config:ro
+    logging:
+      options: { max-size: "20m", max-file: "5" }

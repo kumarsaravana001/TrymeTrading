@@ -1,0 +1,36 @@
+# Research finalists compiled into the schema the REFLEX evaluates each candle.
+# Source: research/2026-11-10.md. BOTH ENTRIES ARE DISABLED: the research behind them is
+# search-snippet level, single-source in places, and the Binance USDT-perp listing and 24h volume
+# of both symbols are NOT verified. Enable one only after the checks listed in the research file.
+setups:
+  - symbol: "MON/USDT:USDT"     # symbol unverified on Binance USDT-M
+    bias: short
+    as_of: "2026-11-10"
+    enabled: false
+    thesis: >-
+      One-year investor/team lock ends 2026-11-24. Trackers put the release between 10.7B and
+      17.1B MON against roughly 11.8B circulating. Supply overhang into and after the date.
+    quality_3: >-
+      Downtrend intact (trend<0, ret_48<0), bounce into the upper half of the range fading on
+      falling volume, no order-book bid wall (imbalance not strongly positive).
+    invalidation:
+      - Price holds or rises through 2026-11-17 to 2026-11-24 on rising volume
+      - Recipients announce re-locks or an extended vesting schedule
+      - Funding deeply negative for several days (crowded short)
+      - Unlock size confirmed at the low end and already absorbed (flat price after 2026-11-24)
+
+  - symbol: "HYPE/USDT:USDT"    # symbol unverified on Binance USDT-M
+    bias: long
+    as_of: "2026-11-10"
+    enabled: false
+    thesis: >-
+      Trading-fee revenue is routed to open-market buybacks through the Assistance Fund
+      (about 48.7M HYPE held, one source). Price near 74 after losing 76 support, below the 50-day.
+    quality_3: >-
+      Selling exhausted (ret_48 negative but ret_12 turning up), close reclaiming the middle of
+      the range on above-average volume, regime not crisis.
+    invalidation:
+      - Daily closes well below 74
+      - Buyback revenue falls below its recent 30-day range
+      - Governance pauses or changes the buyback policy
+      - A large unscheduled unlock or team distribution

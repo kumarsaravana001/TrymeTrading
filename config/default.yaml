@@ -1,0 +1,27 @@
+# Runtime configuration. No secrets here: keys come from environment variables only.
+mode: paper            # paper | testnet | live (live also needs the approval gate, see docs/APPROVAL_GATE.md)
+exchange: binanceusdm  # Binance USDT-margined perpetuals
+testnet_kind: sandbox  # sandbox = testnet.binancefuture.com, demo = demo-fapi.binance.com
+timeframe: 15m
+lookback: 120
+paper_balance: 1000.0
+min_quote_volume_24h: 50000000   # liquidity floor in USDT; lower-volume coins are refused
+max_feed_age_s: 30
+max_clock_skew_s: 2
+reflex: rule           # rule | haiku (haiku needs ANTHROPIC_API_KEY)
+reflex_model: claude-haiku-5-5
+reflex_timeout_s: 8
+reconcile_every: 4
+
+risk:                  # hard limits; only a human editing this file changes them
+  risk_per_trade: 0.02
+  max_daily_loss: 0.05
+  max_open_positions: 3
+  max_leverage: 2.0
+  kill_drawdown: 0.15
+  pause_confidence: 0.60
+
+costs:                 # assumptions; check against your own fee tier
+  taker_fee: 0.0005
+  slippage_bps: 2.0
+  impact_bps_per_10k: 1.0
